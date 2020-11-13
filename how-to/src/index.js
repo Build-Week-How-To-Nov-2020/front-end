@@ -1,11 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './XApp.css';
-import XApp from './XApp';
+import './index.css';
+import { BrowserRouter as Router } from 'react-router-dom'
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <XApp />
-  </React.StrictMode>,
-  document.getElementById('root')
-)
+  <Router>
+    {/* <React.StrictMode> */}
+      <App />
+    {/* </React.StrictMode> */}
+  </Router>,
+    document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

@@ -50,11 +50,11 @@ return (
             <input
                 className='agreeSubmit'
                 type='checkbox'
-                name='loginTos'
-                checked={values.loginTos}
+                name='signinTos'
+                checked={values.signinTos}
                 onChange={onChange}
             />
-        <label for='loginTos'>
+        <label for='signinTos'>
             Even though I still can't be bothered to read the  <a href='./home'> terms of service </a> I'll still check this box so we can move on.
         </label>
         </div>

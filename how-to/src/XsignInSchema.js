@@ -8,7 +8,7 @@ export default yup.object().shape({
     password: yup
         .string()
         .required('Password is required'),
-    loginTos: yup
+    signinTos: yup
         .boolean()
         .oneOf([true], 'Terms of Service must be accepted')
 })

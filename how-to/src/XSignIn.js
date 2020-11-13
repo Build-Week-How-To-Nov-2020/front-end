@@ -9,13 +9,13 @@ import schema from './XsignInSchema'
 const initialFormValues = {
     email: '',
     password: '',
-    loginTos: false,
+    signinTos: false,
     }
 
 const initialFormErrors = {
     email: '',
     password: '',
-    loginTos: '',
+    signinTos: '',
 }
 
 let initialDisabled = true
@@ -28,13 +28,14 @@ function App() {
   
     
     
-    const postLogin = (user) => {       
+    const postSignIn = (user) => {       
         axios
         .post("https://reqres.in/api/users", { email: `${user.email}`, password: `${user.password}` }
 
 )
         .then((res) => {
             setFormValues(initialFormValues)
+            console.log(res)
         })
         .catch((err) => {
             alert("Something ain't right here \n Might wanna check the post request?")
@@ -71,7 +72,7 @@ function App() {
             email: formValues.email,
             password: formValues.password,
         }
-        postLogin(user)
+        postSignIn(user)
         setFormValues(initialFormValues)
     }
 
