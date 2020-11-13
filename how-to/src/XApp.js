@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './XApp.css'
 import XForm from './XForm'
+import XSignIn from './XSignIn'
 import XUser from './XUser'
 import axios from "axios"
 import * as yup from "yup"
@@ -111,14 +112,14 @@ function XApp() {
 // debugger
     return (
         <div className="XApp">
-            <XForm 
+            {/* <XForm 
                 values={formValues}
                 change={inputChange}
                 submit={formSubmit}
                 disabled={disabled}
                 errors={formErrors}
-            />
-            
+            /> */}
+            <XSignIn />
             {users.map((user) => {
                 return <XUser key={user.id} details={user} />
             })}
