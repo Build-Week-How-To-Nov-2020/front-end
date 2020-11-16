@@ -119,7 +119,7 @@ function Form(props){
                 I agree to the <a href='#'> terms of service </a> even though I haven't read them
             </label>
             </div>
-                <button name='submitButton' disabled={disabled}>Submit</button>
+                <button name='submitButton' className='btn' disabled={disabled}>Submit</button>
         </form>
 )}
 export default Form

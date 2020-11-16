@@ -59,7 +59,7 @@ return (
         </label>
         </div>
         </div>
-        <button name='submitButton' disabled={disabled} >Submit</button>
+        <button name='submitButton' className='btn' disabled={disabled} >Submit</button>
     </form>
 )}
 export default Form
