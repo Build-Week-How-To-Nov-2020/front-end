@@ -115,7 +115,7 @@ function Form(props){
                     checked={values.tos}
                     onChange={onChange}
                 />
-            <label for='tosv'>
+            <label for='tosv'>    {/* eslint-disable-next-line  */}
                 I agree to the <a href='#'> terms of service </a> even though I haven't read them
             </label>
             </div>

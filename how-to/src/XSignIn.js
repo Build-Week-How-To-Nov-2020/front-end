@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import './App.css'
+import './XApp.css'
 import XSignInForm from './XSignInForm'
-import XUser from './XUser'
+// import XUser from './XUser'
 import axios from "axios"
 import * as yup from "yup"
 import schema from './XsignInSchema'
@@ -85,7 +85,7 @@ function App() {
 
 
     return (
-        <div className="App">
+        <div className="XApp">
             <XSignInForm 
                 values={formValues}
                 change={inputChange}

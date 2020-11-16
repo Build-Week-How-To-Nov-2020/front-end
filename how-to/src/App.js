@@ -1,14 +1,14 @@
 import React from 'react'
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
-import XApp from './XApp'
+import XSignup from './XSignup'
 import XSignIn from './XSignIn'
 function App() {
   return (
     <div className="App">
       <Switch>
         <Route path='/signin' component={XSignIn} />
-        <Route path= '/signup' component={XApp} />      
+        <Route path= '/signup' component={XSignup} />      
       </Switch>
     </div>
   );

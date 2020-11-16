@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './XApp.css'
 import XSignupForm from './XSignupForm'
-import XSignIn from './XSignIn'
 import XUser from './XUser'
 import axios from "axios"
 import * as yup from "yup"
@@ -112,7 +111,7 @@ function App() {
 // debugger
     return (
         <div className="XApp">
-            <XForm 
+            <XSignupForm 
                 values={formValues}
                 change={inputChange}
                 submit={formSubmit}
