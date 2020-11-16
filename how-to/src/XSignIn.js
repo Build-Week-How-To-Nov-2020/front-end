@@ -22,6 +22,7 @@ let initialDisabled = true
 
 function App() {
 
+    const [otherUsers, setOtherUsers] = useState([])
     const [formValues, setFormValues] = useState(initialFormValues)
     const [formErrors, setFormErrors] = useState(initialFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled)
@@ -34,8 +35,11 @@ function App() {
 
 )
         .then((res) => {
+            // console.log('otherUsers1', otherUsers)
+
+            setOtherUsers([ ...otherUsers ], otherUsers + res.data)
             setFormValues(initialFormValues)
-            console.log(res)
+            // console.log('otherUsers2: ', otherUsers)
         })
         .catch((err) => {
             alert("Something ain't right here \n Might wanna check the post request?")
@@ -44,6 +48,20 @@ function App() {
         })
     }
 
+// useEffect(() => {
+//     function getOtherUsers() {       
+//             axios
+//             .get(`https://reqres.in/api/users`)
+//             .then((res) => {
+//                 console.log(res)
+//                setOtherUsers(res.data)
+//             })
+//             .catch((err) => {
+//                 alert("Something ain't right here in the get")
+//                 debugger
+//             })
+//         }
+// }, [otherUsers])    
     const inputChange = (name, value) => {
     yup
         .reach(schema, name)
@@ -71,9 +89,11 @@ function App() {
         const user = {
             email: formValues.email,
             password: formValues.password,
-        }
-        postSignIn(user)
+        };
+        postSignIn(user);
+        // setOtherUsers({ ...users }, user)
         setFormValues(initialFormValues)
+        // getOtherUsers()
     }
 
     useEffect(() => {
@@ -83,7 +103,8 @@ function App() {
     }, [formValues])
 
 
-
+    if (!otherUsers) {return}
+    
     return (
         <div className="XApp">
             <XSignInForm 
@@ -93,8 +114,9 @@ function App() {
                 disabled={disabled}
                 errors={formErrors}
             />
-            
-           
+            {/* {otherUsers.map((user) => {
+                return <XUser key={user.id} details={user} />
+            })} */}
         </div>
     )
 }
