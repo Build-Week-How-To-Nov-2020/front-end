@@ -1,7 +1,7 @@
 describe('create-user-form', () => {
 
     beforeEach(() => {
-        cy.visit('http://localhost:3000')
+        cy.visit('http://localhost:3000/signup')
     })
 
     const textInput = () => cy.get('input[name="name"]')

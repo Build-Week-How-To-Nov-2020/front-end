@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './XApp.css'
-import XForm from './XForm'
+import XSignupForm from './XSignupForm'
 import XUser from './XUser'
 import axios from "axios"
 import * as yup from "yup"
-import schema from './XformSchema'
+import schema from './XsignupSchema'
 
 const initialFormValues = {
     name: '',
@@ -25,10 +25,10 @@ const initialFormErrors = {
     position: '',
     tos: '\n',
 }
-const initialUsers = [{},{}]
+const initialUsers = [{}]
 const initialDisabled = true
 
-function XApp() {
+function App() {
   
     const [users, setUsers] = useState(initialUsers)
     const [formValues, setFormValues] = useState(initialFormValues)
@@ -111,14 +111,13 @@ function XApp() {
 // debugger
     return (
         <div className="XApp">
-            <XForm 
+            <XSignupForm 
                 values={formValues}
                 change={inputChange}
                 submit={formSubmit}
                 disabled={disabled}
                 errors={formErrors}
             />
-            
             {users.map((user) => {
                 return <XUser key={user.id} details={user} />
             })}
@@ -126,4 +125,4 @@ function XApp() {
     )
 }
 
-export default XApp
+export default App
