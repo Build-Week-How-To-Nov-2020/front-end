@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import XSignupForm from './SignupForm'
-import XUser from './User'
+import SignupForm from './SignupForm'
+import User from './User'
 import axios from "axios"
 import * as yup from "yup"
 import schema from './signupSchema'
@@ -110,8 +110,9 @@ function App() {
 
 // debugger
     return (
-        <div className="XApp">
-            <XSignupForm 
+
+        <div className="App">
+            <SignupForm 
                 values={formValues}
                 change={inputChange}
                 submit={formSubmit}
@@ -119,7 +120,8 @@ function App() {
                 errors={formErrors}
             />
             {users.map((user) => {
-                return <XUser key={user.id} details={user} />
+
+                return <User key={user.id} details={user} />
             })}
         </div>
     )

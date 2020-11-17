@@ -9,7 +9,8 @@ body {
 }
 
 
-.XApp {
+
+.App {
   text-align: right;
   background-color: #004c54;
   min-height: 100vh;
@@ -21,7 +22,7 @@ body {
   color: white;
 }
 
-.XApp a {
+.App a {
   color: #06A155;
 }
 
@@ -93,10 +94,10 @@ select{
 }
 
 .btn {
+  border: 2px solid rgb(30, 220, 20);
 }
 
 button {
-  border: 2px solid rgb(30, 220, 20);
   margin: 2rem;
   height: 3rem;
   width: 8rem;
