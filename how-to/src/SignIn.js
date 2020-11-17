@@ -1,67 +1,67 @@
 import React, { useState, useEffect } from 'react'
-import './XApp.css'
-import XSignupForm from './XSignupForm'
-import XUser from './XUser'
+import './App.css'
+import SignInForm from './SignInForm'
+// import XUser from './XUser'
 import axios from "axios"
 import * as yup from "yup"
-import schema from './XsignupSchema'
+import schema from './signInSchema'
 
 const initialFormValues = {
-    name: '',
     email: '',
-    language: '',
     password: '',
-    passwordConfirmation: '',
-    position: '',
-    tos: false,
+    signinTos: false,
     }
 
 const initialFormErrors = {
-    name: '',
     email: '',
-    language: '',
     password: '',
-    passwordConfirmation: '',
-    position: '',
-    tos: '\n',
+    signinTos: '',
 }
-const initialUsers = [{}]
-const initialDisabled = true
+
+let initialDisabled = true
 
 function App() {
-  
-    const [users, setUsers] = useState(initialUsers)
+
+    const [otherUsers, setOtherUsers] = useState([])
     const [formValues, setFormValues] = useState(initialFormValues)
     const [formErrors, setFormErrors] = useState(initialFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled)
   
-   const getUsers = () => {       
-        axios
-        .get(`https://reqres.in/api/users`)
-        .then((res) => {
-            console.log(res)
-            setUsers(res.data.data)
-        })
-        .catch((err) => {
-            alert("Something ain't right here in the get")
-            debugger
-        })
-    }
     
-    const postNewUser = (newUser) => {       
+    
+    const postSignIn = (user) => {       
         axios
-        .post("https://reqres.in/api/users", newUser)
+        .post("https://reqres.in/api/users", { email: `${user.email}`, password: `${user.password}` }
+
+)
         .then((res) => {
-            setUsers([res.data, ...users])
+            // console.log('otherUsers1', otherUsers)
+
+            setOtherUsers([ ...otherUsers ], otherUsers + res.data)
             setFormValues(initialFormValues)
+            // console.log('otherUsers2: ', otherUsers)
         })
         .catch((err) => {
-            alert("Something ain't right here in the post")
+            alert("Something ain't right here \n Might wanna check the post request?")
+            console.log(err)
             debugger
         })
     }
 
-
+// useEffect(() => {
+//     function getOtherUsers() {       
+//             axios
+//             .get(`https://reqres.in/api/users`)
+//             .then((res) => {
+//                 console.log(res)
+//                setOtherUsers(res.data)
+//             })
+//             .catch((err) => {
+//                 alert("Something ain't right here in the get")
+//                 debugger
+//             })
+//         }
+// }, [otherUsers])    
     const inputChange = (name, value) => {
     yup
         .reach(schema, name)
@@ -86,20 +86,15 @@ function App() {
     }
 
     const formSubmit = () => {
-        const newUser = {
-            name: formValues.name.trim(),
-            email: formValues.email.trim(),
+        const user = {
+            email: formValues.email,
             password: formValues.password,
-            language: formValues.language,
-            tos: formValues.tos
-        }
-        postNewUser(newUser)
+        };
+        postSignIn(user);
+        // setOtherUsers({ ...users }, user)
         setFormValues(initialFormValues)
+        // getOtherUsers()
     }
-
-    useEffect(() => {
-        getUsers()
-    }, [])
 
     useEffect(() => {
         schema.isValid(formValues).then((valid) => {
@@ -108,19 +103,20 @@ function App() {
     }, [formValues])
 
 
-// debugger
+    if (!otherUsers) {return}
+    
     return (
         <div className="XApp">
-            <XSignupForm 
+            <SignInForm 
                 values={formValues}
                 change={inputChange}
                 submit={formSubmit}
                 disabled={disabled}
                 errors={formErrors}
             />
-            {users.map((user) => {
+            {/* {otherUsers.map((user) => {
                 return <XUser key={user.id} details={user} />
-            })}
+            })} */}
         </div>
     )
 }
