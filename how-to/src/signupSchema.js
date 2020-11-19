@@ -16,12 +16,10 @@ export default yup.object().shape({
         .string()
         // .oneOf([yup.ref('password')], 'Passwords do not match')
         ,
-    language: yup
+    
+    account: yup
         .string()
-        .oneOf(['javascript', 'c#', 'python', 'dos', 'css', 'java', 'ruby', 'basic', 'c++', 'html', 'blow'], 'You have to choose your preferred language'),
-    position: yup
-        .string()
-        .oneOf(['tl', 'node', 'java', 'reactii', 'reacti', 'uiux'], 'You must choose your position'),
+        .oneOf(['Editor', 'Subscriber'], 'You must choose your account type'),
     tos: yup
         .boolean()
         .oneOf([true], 'Terms of Service must be accepted')

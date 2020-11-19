@@ -70,39 +70,14 @@ function Form(props){
                 />
                 </div>
                 <div className='inputRow'>
-                    <label for='language'>
-                        Preferred Language
-                    </label>        
-                    
-                        <select className='customSelect' onChange={onChange} value={values.language} name='language'>
-                            <option value=''>- Select an option -</option>
-                            <option value='javascript'>JavaScript</option>
-                            <option value='c#'>C#</option>
-                            <option value='python'>Python</option>
-                            <option value='dos'>DOS</option>
-                            <option value='css'>CSS</option>
-                            <option value='java'>Java</option>
-                            <option value='ruby'>Ruby</option>
-                            <option value='basic'>Basic</option>
-                            <option value='c++'>C++</option>
-                            <option value='html'>HTML</option>
-                            <option value='blow'>Blowing into a Nintendo cartridge</option>
-                        </select>
-                    
-                </div>
-                <div className='inputRow'>
                     <label for='position'>
-                        Team Position
+                        Account Type
                     </label>        
                     
-                    <select className='customSelect' onChange={onChange} value={values.position} name='position'>
+                    <select className='customSelect' onChange={onChange} value={values.position} name='account'>
                         <option value=''>- Select an option -</option>
-                        <option value='tl'>Team Lead</option>
-                        <option value='node'>Back End (Node)</option>
-                        <option value='java'>Back End (Java)</option>
-                        <option value='reactii'>React II</option>
-                        <option value='reacti'>React I</option>
-                        <option value='uiux'>UI/UX</option>
+                        <option value='Editor'>Editor</option>
+                        <option value='Subscriber'>Subscriber</option>
                     </select>
                     </div>
                 
