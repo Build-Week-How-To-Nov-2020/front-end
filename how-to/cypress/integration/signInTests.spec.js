@@ -4,13 +4,13 @@ describe('create-user-form', () => {
         cy.visit('http://localhost:3000/signin')
     })
 
-    const emlInput = () => cy.get('input[name="email"]')
-    const pwdInput = () => cy.get('input[name="password"]')
+    const unameInput = () => cy.get('input[name="Username"]')
+    const pwdInput = () => cy.get('input[name="Password"]')
     const agreeChk =() => cy.get('input[name="signinTos"]')
     const submitBtn = () => cy.get('button[name="submitButton"]')
 
     it('elements are there', () => {
-        emlInput().should('exist')
+        unameInput().should('exist')
         pwdInput().should('exist')
         agreeChk().should('exist')
         submitBtn().should('exist')
@@ -28,9 +28,9 @@ describe('create-user-form', () => {
 
 
     it('can type in all text fields and that activates submit button and it submits', () => {
-        emlInput().type('text@text.text')
+        unameInput().type('text@text.text')
         pwdInput().type('text@text.text')
-        emlInput().should('have.value','text@text.text')
+        unameInput().should('have.value','text@text.text')
         pwdInput().should('have.value','text@text.text')
         agreeChk().click()
         submitBtn().should('be.enabled').click()
