@@ -7,14 +7,14 @@ import * as yup from "yup"
 import schema from './signInSchema'
 
 const initialFormValues = {
-    email: '',
-    password: '',
+    Username: '',
+    Password: '',
     signinTos: false,
     }
 
 const initialFormErrors = {
-    email: '',
-    password: '',
+    Username: '',
+    Password: '',
     signinTos: '',
 }
 
@@ -31,7 +31,7 @@ function App() {
     
     const postSignIn = (user) => {       
         axios
-        .post("https://reqres.in/api/users", { email: `${user.email}`, password: `${user.password}` }
+        .post("https://how-to-api-2.herokuapp.com/auth/login", { Username: `${user.Username}`, Password: `${user.Password}` }
 
 )
         .then((res) => {
@@ -87,8 +87,8 @@ function App() {
 
     const formSubmit = () => {
         const user = {
-            email: formValues.email,
-            password: formValues.password,
+            Username: formValues.Username,
+            Password: formValues.Password,
         };
         postSignIn(user);
         // setOtherUsers({ ...users }, user)

@@ -19,28 +19,24 @@ const onChange = (e) => {
 return (
     <form className='container' onSubmit={onSubmit}>
         <h2>Log In</h2>
-        <div className='errors'>
-            {errors.email}
-            {errors.password}
-        </div>        
         <div className='input container'>
             <div className='inputRow'>
-                <label for='email'>Email</label>
+                <label for='Username'>Email</label>
                 <input
-                    value={values.email}
+                    value={values.Username}
                     onChange={onChange}
-                    name='email'
-                    type='email'
+                    name='Username'
+                    type='text'
                 />
             </div>
             <div className='inputRow'>
-                <label for='password'>
+                <label for='Password'>
                     Password
                 </label>
                 <input
-                    value={values.password}
+                    value={values.Password}
                     onChange={onChange}
-                    name='password'
+                    name='Password'
                     type='password'
                 />
             </div>
@@ -59,6 +55,10 @@ return (
         </label>
         </div>
         </div>
+        <div className='errors'>
+            {errors.Username}
+            {errors.Password}
+        </div>        
         <button name='submitButton' className='btn' disabled={disabled} >Submit</button>
     </form>
 )}
