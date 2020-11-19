@@ -10,19 +10,17 @@ const initialFormValues = {
     name: '',
     email: '',
     language: '',
-    password: '',
     passwordConfirmation: '',
-    position: '',
+    account: '',
     tos: false,
     }
 
 const initialFormErrors = {
     name: '',
     email: '',
-    language: '',
     password: '',
     passwordConfirmation: '',
-    position: '',
+    account: '',
     tos: '\n',
 }
 const initialUsers = [{}]
@@ -35,31 +33,34 @@ function App() {
     const [formErrors, setFormErrors] = useState(initialFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled)
   
-   const getUsers = () => {       
-        axios
-        .get(`https://reqres.in/api/users`)
-        .then((res) => {
-            console.log(res)
-            setUsers(res.data.data)
-        })
-        .catch((err) => {
-            alert("Something ain't right here in the get")
-            debugger
-        })
-    }
+    useEffect(() => {  // eslint-disable-next-line
+        var getUsers = () => {       
+            axios
+                .get(`https://how-to-api-2.herokuapp.com/api/users`)
+                .then((res) => {
+                    console.log(res)
+                    setUsers(res.data.data)
+                })
+                .catch((err) => {
+                    alert("Something ain't right here in the get")
+                    debugger
+                })
+        }    
+            
     
-    const postNewUser = (newUser) => {       
-        axios
-        .post("https://reqres.in/api/users", newUser)
-        .then((res) => {
-            setUsers([res.data, ...users])
-            setFormValues(initialFormValues)
-        })
-        .catch((err) => {
-            alert("Something ain't right here in the post")
-            debugger
-        })
-    }
+    }, [users])
+        const postNewUser = (newUser) => {       
+            axios
+                .post("https://how-to-api-2.herokuapp.com/auth/register", newUser)
+                .then((res) => {
+                    setUsers([res.data, ...users])
+                    setFormValues(initialFormValues)
+                })
+                .catch((err) => {
+                    alert("Something ain't right here in the post")
+                    debugger
+                })
+        }
 
 
     const inputChange = (name, value) => {
@@ -87,19 +88,14 @@ function App() {
 
     const formSubmit = () => {
         const newUser = {
-            name: formValues.name.trim(),
-            email: formValues.email.trim(),
-            password: formValues.password,
-            language: formValues.language,
-            tos: formValues.tos
+            Username: formValues.name.trim(),
+            Email: formValues.email.trim(),
+            Password: formValues.password,
+            Account: formValues.account,
         }
         postNewUser(newUser)
         setFormValues(initialFormValues)
     }
-
-    useEffect(() => {
-        getUsers()
-    }, [])
 
     useEffect(() => {
         schema.isValid(formValues).then((valid) => {
