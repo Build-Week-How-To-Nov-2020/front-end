@@ -1,18 +1,29 @@
-import React, {useEffect, useState} from 'react';
-import * as howToService from '../services/howto-service';
-
+import React, {useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchHowTos } from '../redux/howtos/actions';
 
 const HowToList = () => {
-  //set up useState
-  const [howTos, setHowTos] = useState([]);
-  //will hold how toos
+  // //set up useState
+  // const [howTos, setHowTos] = useState([]);
+  // //will hold how toos
+  const dispatch = useDispatch();
+  const howTos = useSelector(state => state.howTosState.howTos);
+  const isLoading = useSelector(state => state.howTosState.isLoading);
 
   useEffect(() => {
-    const fetchHowTos = async () => {
-      setHowTos(await howToService.fetchHowTos())
-    };
-    fetchHowTos();
-  }, [])//set howtos inside this hook
+    dispatch(fetchHowTos());
+  }, []);
+
+  // useEffect(() => {
+  //   const fetchHowTos = async () => {
+  //     setHowTos(await howToService.fetchHowTos())
+  //   };
+  //   fetchHowTos();
+  // }, [])//set howtos inside this hook
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (//howtos mapping
     <div>
