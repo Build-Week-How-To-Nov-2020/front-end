@@ -1,8 +1,8 @@
 describe('create-user-form', () => {
 
     beforeEach(() => {
-        // cy.visit('https://how-to-november2020.netlify.app/signin')
-        cy.visit('localhost:3000/signin')
+        cy.visit('https://how-to-november2020.netlify.app/signin')
+        // cy.visit('localhost:3000/signin')
 
     })
 
