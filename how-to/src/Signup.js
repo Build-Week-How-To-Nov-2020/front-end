@@ -38,8 +38,9 @@ function App() {
             axios
                 .get(`https://how-to-nov-2020.herokuapp.com/user`)
                 .then((res) => {
-                    console.log(res)
-                    setUsers(res.data.data)
+                    console.log('res: ', res)
+                    debugger
+                    setUsers(res.data)
                 })
                 .catch((err) => {
                     alert("Something ain't right here in the get")
