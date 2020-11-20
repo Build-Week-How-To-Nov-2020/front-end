@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import './App.css'
+import '../App.css'
 import SignupForm from './SignupForm'
 import User from './User'
 import axios from "axios"
 import * as yup from "yup"
-import schema from './signupSchema'
+import schema from '../schemas/signupSchema'
 import { v4 as uuid } from 'uuid';
 
 const initialFormValues = {

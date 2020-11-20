@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+import '../App.css'
 
 function Form(props){
 
@@ -27,6 +27,7 @@ return (
                     onChange={onChange}
                     name='username'
                     type='text'
+                    placeholder='Username'
                 />
             </div>
             <div className='inputRow'>
@@ -38,6 +39,7 @@ return (
                     onChange={onChange}
                     name='password'
                     type='password'
+                    placeholder='Password'
                 />
             </div>
         
