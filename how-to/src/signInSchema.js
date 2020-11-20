@@ -1,10 +1,10 @@
 import * as yup from 'yup'
 
 export default yup.object().shape({
-    Username: yup
+    username: yup
         .string()
         .required('Username is required'),
-    Password: yup
+    password: yup
         .string()
         .required('Password is required'),
     signinTos: yup

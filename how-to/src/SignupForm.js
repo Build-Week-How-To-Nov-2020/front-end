@@ -17,22 +17,13 @@ function Form(props){
     return (
         <form className='container' onSubmit={onSubmit}>
             <h2>Add New User</h2>
-            <div className='errors'>
-                <div>{errors.name}</div>
-                <div>{errors.email}</div>
-                <div>{errors.password}</div>
-                <div>{errors.passwordConfirmation}</div>
-                <div>{errors.language}</div>
-                <div>{errors.position}</div>
-                <div>{errors.tos}</div>
-            </div>        
             <div className='input container'>
                 <div className='inputRow'>
-                    <label for='name'>Name</label>
+                    <label for='username'>Username</label>
                     <input
-                        value={values.name}
+                        value={values.username}
                         onChange={onChange}
-                        name='name'
+                        name='username'
                         type='text'
                     />
                 </div>
@@ -94,6 +85,15 @@ function Form(props){
                 I agree to the <a href='#'> terms of service </a> even though I haven't read them
             </label>
             </div>
+            <div className='errors'>
+                <div>{errors.name}</div>
+                <div>{errors.email}</div>
+                <div>{errors.password}</div>
+                <div>{errors.passwordConfirmation}</div>
+                <div>{errors.language}</div>
+                <div>{errors.position}</div>
+                <div>{errors.tos}</div>
+            </div>        
                 <button name='submitButton' className='btn' disabled={disabled}>Submit</button>
         </form>
 )}

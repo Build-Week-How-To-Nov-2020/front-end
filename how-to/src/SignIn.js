@@ -91,7 +91,7 @@ function SignIn() {
 
   const formSubmit = async () => {
     try {
-      dispatch(login(formValues.Username, formValues.Password));
+      dispatch(login(formValues.username, formValues.password));
       history.push("/howtos");
     } catch (err) {
       console.error(err);

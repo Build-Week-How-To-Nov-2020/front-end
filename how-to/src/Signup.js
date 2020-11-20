@@ -36,7 +36,7 @@ function App() {
     useEffect(() => {  // eslint-disable-next-line
         var getUsers = () => {       
             axios
-                .get(`https://how-to-nov-2020.herokuapp.com/user/user`)
+                .get(`https://how-to-nov-2020.herokuapp.com/user`)
                 .then((res) => {
                     console.log(res)
                     setUsers(res.data.data)
@@ -88,10 +88,8 @@ function App() {
 
     const formSubmit = () => {
         const newUser = {
-            Username: formValues.name.trim(),
-            Email: formValues.email.trim(),
-            Password: formValues.password,
-            Account: formValues.account,
+            username: formValues.username,
+            password: formValues.password,
         }
         postNewUser(newUser)
         setFormValues(initialFormValues)
@@ -117,7 +115,7 @@ function App() {
             />
             {users.map((user) => {
 
-                return <User key={user.id} details={user} />
+                return <User key={user.id + Math.random() * 100} details={user} />
             })}
         </div>
     )

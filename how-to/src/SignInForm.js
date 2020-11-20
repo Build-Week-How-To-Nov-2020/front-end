@@ -21,22 +21,22 @@ return (
         <h2>Log In</h2>
         <div className='input container'>
             <div className='inputRow'>
-                <label for='Username'>Email</label>
+                <label for='username'>Username</label>
                 <input
-                    value={values.Username}
+                    value={values.username}
                     onChange={onChange}
-                    name='Username'
+                    name='username'
                     type='text'
                 />
             </div>
             <div className='inputRow'>
-                <label for='Password'>
+                <label for='password'>
                     Password
                 </label>
                 <input
-                    value={values.Password}
+                    value={values.password}
                     onChange={onChange}
-                    name='Password'
+                    name='password'
                     type='password'
                 />
             </div>
