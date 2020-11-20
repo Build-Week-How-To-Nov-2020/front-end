@@ -1,10 +1,10 @@
-import React, {useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchHowTos } from '../redux/howtos/actions';
 
 const HowToList = () => {
   // //set up useState
-  // const [howTos, setHowTos] = useState([]);
+//   const [howTos, setHowTos] = useState([]);
   // //will hold how toos
   const dispatch = useDispatch();
   const howTos = useSelector(state => state.howTosState.howTos);
@@ -12,7 +12,7 @@ const HowToList = () => {
 
   useEffect(() => {
     dispatch(fetchHowTos());
-  }, []);
+  }, [howTos]);
 
   // useEffect(() => {
   //   const fetchHowTos = async () => {

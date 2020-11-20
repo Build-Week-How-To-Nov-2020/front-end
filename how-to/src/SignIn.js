@@ -23,7 +23,7 @@ const initialFormErrors = {
 let initialDisabled = true;
 
 function SignIn() {
-  const [otherUsers, setOtherUsers] = useState([]);
+//   const [otherUsers, setOtherUsers] = useState([]);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -105,9 +105,9 @@ function SignIn() {
     });
   }, [formValues]);
 
-  if (!otherUsers) {
-    return;
-  }
+//   if (!otherUsers) {
+//     return;
+//   }
 
   return (
     <div className="XApp">
