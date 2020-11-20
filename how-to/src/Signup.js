@@ -5,6 +5,7 @@ import User from './User'
 import axios from "axios"
 import * as yup from "yup"
 import schema from './signupSchema'
+import { v4 as uuid } from 'uuid';
 
 const initialFormValues = {
     name: '',
@@ -23,39 +24,40 @@ const initialFormErrors = {
     account: '',
     tos: '\n',
 }
-const initialUsers = [{}]
 const initialDisabled = true
 
 function App() {
   
-    const [users, setUsers] = useState(initialUsers)
+    const [users, setUsers] = useState([])
     const [formValues, setFormValues] = useState(initialFormValues)
     const [formErrors, setFormErrors] = useState(initialFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled)
   
     useEffect(() => {  // eslint-disable-next-line
-        var getUsers = () => {       
+        const getUsers = () => {       
             axios
                 .get(`https://how-to-nov-2020.herokuapp.com/user`)
                 .then((res) => {
                     console.log('res: ', res)
-                    debugger
                     setUsers(res.data)
                 })
                 .catch((err) => {
+                    console.log(err)
                     alert("Something ain't right here in the get")
                     debugger
                 })
-        }    
-            
     
-    }, [users])
+        }
+        if (!users.length > 0) {getUsers()}  
+    }, [users]);
+
         const postNewUser = (newUser) => {       
             axios
                 .post("https://how-to-nov-2020.herokuapp.com/user/signup", newUser)
                 .then((res) => {
                     setUsers([res.data, ...users])
                     setFormValues(initialFormValues)
+                    
                 })
                 .catch((err) => {
                     alert("Something ain't right here in the post")
@@ -116,7 +118,7 @@ function App() {
             />
             {users.map((user) => {
 
-                return <User key={user.id + Math.random() * 100} details={user} />
+                return <User key={uuid()} details={user} />
             })}
         </div>
     )

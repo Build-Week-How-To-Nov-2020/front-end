@@ -21,7 +21,7 @@ return (
         <h2>Log In</h2>
         <div className='input container'>
             <div className='inputRow'>
-                <label for='username'>Username</label>
+                <label htmlFor='username'>Username</label>
                 <input
                     value={values.username}
                     onChange={onChange}
@@ -30,7 +30,7 @@ return (
                 />
             </div>
             <div className='inputRow'>
-                <label for='password'>
+                <label htmlFor='password'>
                     Password
                 </label>
                 <input
@@ -50,7 +50,7 @@ return (
                 checked={values.signinTos}
                 onChange={onChange}
             />
-        <label for='signinTos'>
+        <label htmlFor='signinTos'>
             Even though I still can't be bothered to read the  <a href='./home'> terms of service </a> I'll still check this box so we can move on.
         </label>
         </div>

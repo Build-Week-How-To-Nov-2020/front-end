@@ -19,7 +19,7 @@ function Form(props){
             <h2>Add New User</h2>
             <div className='input container'>
                 <div className='inputRow'>
-                    <label for='username'>Username</label>
+                    <label htmlFor='username'>Username</label>
                     <input
                         value={values.username}
                         onChange={onChange}
@@ -28,7 +28,7 @@ function Form(props){
                     />
                 </div>
                 <div className='inputRow'>
-                    <label for='email'>
+                    <label htmlFor='email'>
                         E-mail
                     </label>
                     <input
@@ -39,7 +39,7 @@ function Form(props){
                     />
                 </div>
             <div className='inputRow'>
-                <label for='password'>
+                <label htmlFor='password'>
                     Password
                 </label>
                 <input
@@ -50,7 +50,7 @@ function Form(props){
                 />
             </div>
             <div className='inputRow'>
-                <label for='passwordConfirmation'>
+                <label htmlFor='passwordConfirmation'>
                     Password Confirmation
                 </label>
                 <input
@@ -61,7 +61,7 @@ function Form(props){
                 />
                 </div>
                 <div className='inputRow'>
-                    <label for='position'>
+                    <label htmlFor='position'>
                         Account Type
                     </label>        
                     
@@ -81,7 +81,7 @@ function Form(props){
                     checked={values.tos}
                     onChange={onChange}
                 />
-            <label for='tosv'>    {/* eslint-disable-next-line  */}
+            <label htmlFor='tosv'>    {/* eslint-disable-next-line  */}
                 I agree to the <a href='#'> terms of service </a> even though I haven't read them
             </label>
             </div>
