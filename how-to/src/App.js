@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HowToList from "./components/HowToList";
-import HowToForm from "./components/HowToForm";
-
+// import HowToForm from "./components/HowToForm";
+import Signup from './Signup'
+import SignIn from './SignIn'
 import "./App.css";
 
 function App() {
@@ -9,18 +10,11 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/">
-            <HowToList />
-          </Route>
-
-          <Route path="/howtos/create">
-            <HowToForm />
-          </Route>
-
-          <Route path="/howtos">
-            <HowToList />
-          </Route>
-
+          <Route exact path="/" component={SignIn} />
+          <Route path='/signin' component={SignIn} />
+          <Route path='/signup' component={Signup} />      
+          {/** <Route path="/howtos/create" component={HowToForm} /> */}
+          <Route path="/howtos" component={HowToList} />
         </Switch>
       </div>
     </Router>
