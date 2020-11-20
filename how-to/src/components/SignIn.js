@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react"
-import './App.css'
-import SignInForm from "./SignInForm"
-import * as yup from "yup"
-import schema from "./signInSchema"
-import { useDispatch } from "react-redux"
-import { login } from "./redux/auth/actions"
-import { useHistory } from "react-router-dom"
+import React, { useState, useEffect } from 'react'
+import '../App.css'
+import SignInForm from './SignInForm'
+import * as yup from 'yup'
+import schema from '../schemas/signInSchema'
+import { useDispatch } from 'react-redux'
+import { login } from '../redux/auth/actions'
+import { useHistory } from 'react-router-dom'
 
 const initialFormValues = {
-  Username: "",
-  Password: "",
+  username: '',
+  password: '',
   signInTOS: false,
 };
 
 const initialFormErrors = {
-  Username: "",
-  Password: "",
-  signInTOS: "",
+  username: '',
+  password: '',
+  signInTOS: '',
 };
 
 let initialDisabled = true;
@@ -35,7 +35,7 @@ function SignIn() {
       .then(() => {
         setFormErrors({
           ...formErrors,
-          [name]: "",
+          [name]: '',
         });
       })
       .catch((err) => {
@@ -54,7 +54,7 @@ function SignIn() {
   const formSubmit = async () => {
     try {
       dispatch(login(formValues.username, formValues.password));
-      history.push("/howtos");
+      history.push('/howtos');
     } catch (err) {
       console.error(err);
     }
@@ -68,7 +68,7 @@ function SignIn() {
 
 
   return (
-    <div className="App">
+    <div className='App'>
       <SignInForm
         values={formValues}
         change={inputChange}

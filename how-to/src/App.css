@@ -98,6 +98,61 @@ input {
     margin: .5rem 1rem 0 0;
 }
 
+.how-to .inputRow{
+    display: flex;
+    flex-direction: column;
+}
+
+.how-to .inputRow input {
+    text-align: center;
+    
+} 
+
+.how-to .inputRow label {
+    text-align: center;
+    
+} 
+
+.how-to .id {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+
+}
+
+/* .how-to .inputRow .id label {
+    text-align: right;
+    display: inline-block;
+    width: 40%
+} */
+.how-to .id input {
+    text-align: left;
+    
+} 
+
+.how-to .id label {
+    text-align: right;
+    
+    margin: 2rem;
+} 
+
+.how-to .id input {
+    text-align: left;
+    display: inline;
+    max-width: 10%;
+    
+    /* width: 5rem; */
+} 
+
+textarea {
+    width: 50vw;
+    height: 25vh;
+    resize: none;
+    border-radius: 3px;
+    margin: 2rem;
+}
+
 .btn {
   border: 2px solid rgb(30, 220, 20);
 }
