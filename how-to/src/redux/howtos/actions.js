@@ -1,5 +1,5 @@
 // import axios from "axios";
-import axiosWithAuth from '../../utilities/axiosWithAuth';
+// import axiosWithAuth from '../../utilities/axiosWithAuth';
 
 export const FETCH_HOWTOS = "FETCH_HOWTOS";
 export const FETCH_HOWTOS_SUCCESS = "FETCH_HOWTOS_SUCCESS";

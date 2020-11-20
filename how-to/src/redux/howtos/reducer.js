@@ -1,4 +1,4 @@
-import { bindActionCreators } from "redux";
+// import { bindActionCreators } from "redux";
 import { FETCH_HOWTOS, FETCH_HOWTOS_SUCCESS, FETCH_HOWTOS_ERROR, ADD_HOWTO, ADD_HOWTO_SUCCESS, ADD_HOWTO_ERROR } from "./actions";
 
 const initialState = {

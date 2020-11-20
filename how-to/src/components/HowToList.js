@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchHowTos } from '../redux/howtos/actions';
 
@@ -12,7 +12,7 @@ const HowToList = () => {
 
   useEffect(() => {
     dispatch(fetchHowTos());
-  }, [howTos]);
+  });
 
   // useEffect(() => {
   //   const fetchHowTos = async () => {
