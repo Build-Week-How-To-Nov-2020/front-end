@@ -8,7 +8,7 @@ export const login = (username, password) => {
   return async (dispatch) => {
     try {
       dispatch({ type: LOGIN_START });
-      const url = "/user/signin";
+      const url = "https://how-to-nov-2020.herokuapp.com/user/signin";
       const res = await axios.post(url, {
         username,
         password,
