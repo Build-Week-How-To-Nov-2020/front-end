@@ -8,7 +8,7 @@ export const login = (username, password) => {
   return async (dispatch) => {
     try {
       dispatch({ type: LOGIN_START });
-      const url = "http://localhost:5000/api/login";
+      const url = "/user/signin";
       const res = await axios.post(url, {
         username,
         password,
@@ -22,7 +22,8 @@ export const login = (username, password) => {
       dispatch({ 
         type: LOGIN_ERROR,
         error: err 
-        });
+      });
+      throw err;
     }
   };
 };
