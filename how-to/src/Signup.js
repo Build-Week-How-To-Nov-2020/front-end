@@ -8,9 +8,9 @@ import schema from './signupSchema'
 import { v4 as uuid } from 'uuid';
 
 const initialFormValues = {
-    name: '',
+    username: '',
     email: '',
-    language: '',
+    password: '',
     passwordConfirmation: '',
     account: '',
     tos: false,
@@ -36,6 +36,8 @@ function App() {
     useEffect(() => {  // eslint-disable-next-line
         const getUsers = () => {       
             axios
+
+                // .get(`https://reqres.in/api/users/`)
                 .get(`https://how-to-nov-2020.herokuapp.com/user`)
                 .then((res) => {
                     console.log('res: ', res)

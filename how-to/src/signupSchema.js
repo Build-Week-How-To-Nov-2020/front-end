@@ -20,7 +20,7 @@ export default yup.object().shape({
     account: yup
         .string()
         .oneOf(['Editor', 'Subscriber'], 'You must choose your account type'),
-    tos: yup
+    signUpTOS: yup
         .boolean()
         .oneOf([true], 'Terms of Service must be accepted')
        

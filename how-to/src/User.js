@@ -5,7 +5,6 @@ export default function User({ details }) {
     return (
         <div className='user container'>
         <h2>{details.username}</h2>
-        
         </div>
-
-    )}
+    )
+}

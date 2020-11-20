@@ -1,15 +1,17 @@
 describe('create-user-form', () => {
 
     beforeEach(() => {
-        cy.visit('http://localhost:3000/signup')
+        // cy.visit('https://how-to-november2020.netlify.app/signup')
+        cy.visit('localhost:3000/signup')
+
     })
 
-    const textInput = () => cy.get('input[name="name"]')
+    const textInput = () => cy.get('input[name="username"]')
     const emailInput = () => cy.get('input[name="email"]')
     const pwdInput = () => cy.get('input[name="password"]')
     const pwdConfInput = () => cy.get('input[name="passwordConfirmation"]')
     const acctSelect = () => cy.get('select[name="account"]')
-    const agreeChk =() => cy.get('input[name="tos"]')
+    const agreeChk =() => cy.get('input[name="signUpTOS"]')
     const submitBtn = () => cy.get('button[name="submitButton"]')
 
     it('elements are there', () => {

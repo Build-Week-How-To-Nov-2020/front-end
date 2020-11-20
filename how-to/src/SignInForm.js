@@ -46,12 +46,12 @@ return (
             <input
                 className='agreeSubmit'
                 type='checkbox'
-                name='signinTos'
-                checked={values.signinTos}
+                name='signInTOS'
+                checked={values.signInTOS}
                 onChange={onChange}
             />
-        <label htmlFor='signinTos'>
-            Even though I still can't be bothered to read the  <a href='./home'> terms of service </a> I'll still check this box so we can move on.
+        <label htmlFor='signInTOS'>  {/* eslint-disable-next-line  */}
+            Even though I still can't be bothered to read the  <a href='#'> terms of service </a> I'll still check this box so we can move on.
         </label>
         </div>
         </div>

@@ -49,7 +49,7 @@ function Form(props){
                     type='password'
                 />
             </div>
-            <div className='inputRow'>
+            <div className='inputRow conf'>
                 <label htmlFor='passwordConfirmation'>
                     Password Confirmation
                 </label>
@@ -65,25 +65,26 @@ function Form(props){
                         Account Type
                     </label>        
                     
-                    <select className='customSelect' onChange={onChange} value={values.position} name='account'>
+                    <select className='customSelect' onChange={onChange} value={values.account} name='account'>
                         <option value=''>- Select an option -</option>
                         <option value='Editor'>Editor</option>
                         <option value='Subscriber'>Subscriber</option>
                     </select>
                     </div>
                 
-            </div>
+            
             <div className='submitRow'>
                 <input
                     className='agreeSubmit'
                     type='checkbox'
-                    name='tos'
-                    checked={values.tos}
+                    name='signUpTOS'
+                    checked={values.signUpTOS}
                     onChange={onChange}
                 />
-            <label htmlFor='tosv'>    {/* eslint-disable-next-line  */}
+            <label htmlFor='signUpTOS'>    {/* eslint-disable-next-line  */}
                 I agree to the <a href='#'> terms of service </a> even though I haven't read them
             </label>
+            </div>
             </div>
             <div className='errors'>
                 <div>{errors.name}</div>
@@ -92,7 +93,7 @@ function Form(props){
                 <div>{errors.passwordConfirmation}</div>
                 <div>{errors.language}</div>
                 <div>{errors.position}</div>
-                <div>{errors.tos}</div>
+                <div>{errors.signUpTOS}</div>
             </div>        
                 <button name='submitButton' className='btn' disabled={disabled}>Submit</button>
         </form>
