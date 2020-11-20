@@ -36,7 +36,7 @@ function App() {
     useEffect(() => {  // eslint-disable-next-line
         var getUsers = () => {       
             axios
-                .get(`https://how-to-api-2.herokuapp.com/api/users`)
+                .get(`https://how-to-nov-2020.herokuapp.com/user/user`)
                 .then((res) => {
                     console.log(res)
                     setUsers(res.data.data)
@@ -51,7 +51,7 @@ function App() {
     }, [users])
         const postNewUser = (newUser) => {       
             axios
-                .post("https://how-to-api-2.herokuapp.com/auth/register", newUser)
+                .post("https://how-to-nov-2020.herokuapp.com/user/signup", newUser)
                 .then((res) => {
                     setUsers([res.data, ...users])
                     setFormValues(initialFormValues)
